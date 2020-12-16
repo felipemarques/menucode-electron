@@ -11,10 +11,15 @@ function createWindow () {
       nodeIntegration: true,
     },
   });
+  
   mainWindow.loadFile('index.html');
+  
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
+
+  mainWindow.maximize();
+  mainWindow.webContents.openDevTools();
   
   setInterval(function(){
     autoUpdater.checkForUpdatesAndNotify();
